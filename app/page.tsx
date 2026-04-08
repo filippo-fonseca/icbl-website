@@ -89,18 +89,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center min-h-screen py-32">
             {/* Left: Text - higher z-index to stay above heart */}
             <div className="animate-in relative z-20">
-              <p className="text-sm text-[#14365d] tracking-widest uppercase mb-6">
+              <p className="text-sm text-[#4a9eff] tracking-widest uppercase mb-6 font-medium">
                 Yale School of Engineering
               </p>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] mb-8 tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] mb-8 tracking-tight text-white drop-shadow-lg">
                 Decoding the intrinsic{" "}
                 <span className="gradient-text">mechanics</span>
                 <br />
                 of the human heart.
               </h1>
 
-              <p className="text-lg text-white/40 max-w-md mb-12 leading-relaxed">
+              <p className="text-lg text-white/70 max-w-md mb-12 leading-relaxed">
                 Computational approaches to understand cardiac disease at the
                 molecular level.
               </p>
@@ -172,16 +172,16 @@ export default function Home() {
               <Link
                 key={item.number}
                 href="/research"
-                className="group block p-8 rounded-2xl glass hover:bg-white/5 transition-all duration-500 animate-in"
+                className="group block p-8 rounded-2xl neumorphic transition-all duration-500 animate-in"
                 style={{ animationDelay: `${0.1 * i}s` }}
               >
-                <span className="text-xs text-[#14365d] tracking-wider">
+                <span className="text-xs text-[#4a9eff] tracking-wider font-medium">
                   {item.number}
                 </span>
-                <h3 className="text-xl font-medium mt-4 mb-3 group-hover:text-[#14365d] transition-colors">
+                <h3 className="text-xl font-medium mt-4 mb-3 text-white group-hover:text-[#4a9eff] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-white/40 leading-relaxed">
+                <p className="text-sm text-white/50 leading-relaxed">
                   {item.description}
                 </p>
               </Link>
@@ -193,18 +193,18 @@ export default function Home() {
       {/* Stats */}
       <section className="relative z-10 py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: "50+", label: "Publications" },
               { value: "15+", label: "Years" },
               { value: "10+", label: "Researchers" },
               { value: "3", label: "Focus Areas" },
             ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-4xl md:text-5xl font-medium gradient-text mb-2">
+              <div key={stat.label} className="neumorphic rounded-2xl p-6 text-center">
+                <div className="text-4xl md:text-5xl font-medium text-[#4a9eff] mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm text-white/30 uppercase tracking-wider">
+                <div className="text-sm text-white/50 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>

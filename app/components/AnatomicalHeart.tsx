@@ -39,15 +39,14 @@ export default function AnatomicalHeart() {
       ref={containerRef}
       className="relative w-full h-full flex items-center justify-center transition-transform duration-200 ease-out"
     >
-      {/* Heart Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px] object-cover scale-125"
+        className="w-[550px] h-[550px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] object-contain"
       >
-        <source src="/heart_loop.mp4" type="video/mp4" />
+        <source src="/heart_transparent.webm" type="video/webm" />
       </video>
     </div>
   );
