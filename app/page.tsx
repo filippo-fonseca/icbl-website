@@ -44,41 +44,46 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40">
+      <nav className="fixed top-0 left-0 right-0 z-40 py-4">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/icbl_logo_white_on_blue_bg.jpg"
-                alt="ICB Lab"
-                width={40}
-                height={40}
-                className="rounded-lg"
-              />
-              <span className="text-sm font-medium text-white/60">ICB Lab</span>
-            </Link>
-
-            {/* Nav links */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm text-white/50 hover:text-white transition-colors duration-300"
-                >
-                  {link.name}
-                </Link>
-              ))}
+          <div className="grid grid-cols-3 items-center h-16">
+            {/* Logo - left */}
+            <div className="flex justify-start">
+              <Link href="/" className="flex items-center hover-lift">
+                <Image
+                  src="/icbl_logo.png"
+                  alt="Integrative Cardiac Biomechanics Laboratory"
+                  width={280}
+                  height={48}
+                  className="h-10 md:h-12 w-auto"
+                />
+              </Link>
             </div>
 
-            {/* Contact */}
-            <a
-              href="mailto:stuart.campbell@yale.edu"
-              className="text-sm text-white/50 hover:text-white transition-colors duration-300"
-            >
-              Contact
-            </a>
+            {/* Nav links - center */}
+            <div className="hidden md:flex justify-center">
+              <div className="nav-pill rounded-full px-2 py-2 flex items-center gap-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact - right */}
+            <div className="flex justify-end">
+              <a
+                href="mailto:stuart.campbell@yale.edu"
+                className="nav-pill px-5 py-2.5 rounded-full text-sm text-white/60 hover:text-white transition-all duration-300"
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -94,15 +99,16 @@ export default function Home() {
               </p>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] mb-8 tracking-tight text-white drop-shadow-lg">
-                Decoding the intrinsic{" "}
-                <span className="gradient-text">mechanics</span>
+                Decoding the <span className="gradient-text">mechanics</span>
                 <br />
                 of the human heart.
               </h1>
 
-              <p className="text-lg text-white/70 max-w-md mb-12 leading-relaxed">
-                Computational approaches to understand cardiac disease at the
-                molecular level.
+              <p className="text-lg text-white/70 max-w-xl mb-12 leading-relaxed">
+                Translational research at the intersection of cardiac
+                physiology, biomechanics, tissue engineering, and stem cell
+                biology. We create novel computational models and experimental
+                methods to solve unmet clinical needs.
               </p>
 
               <div className="flex items-center gap-6">
@@ -154,19 +160,19 @@ export default function Home() {
                 number: "01",
                 title: "Inherited Cardiomyopathies",
                 description:
-                  "Understanding genetic mutations that alter cardiac muscle function.",
+                  "Discovering disease mechanisms, predicting genotype-phenotype relationships, and improving clinical diagnostics.",
               },
               {
                 number: "02",
                 title: "Cardiomyocyte Function",
                 description:
-                  "Examining cellular heterogeneity and contraction regulation.",
+                  "Characterizing cell-to-cell variation and the signaling pathways that regulate muscle contraction.",
               },
               {
                 number: "03",
                 title: "Cardiac Mechanobiology",
                 description:
-                  "Investigating how biomechanical loads influence heart function.",
+                  "Dissecting the role of biomechanical loads and extracellular matrix on cardiac remodeling.",
               },
             ].map((item, i) => (
               <Link
@@ -200,7 +206,10 @@ export default function Home() {
               { value: "10+", label: "Researchers" },
               { value: "3", label: "Focus Areas" },
             ].map((stat) => (
-              <div key={stat.label} className="neumorphic rounded-2xl p-6 text-center">
+              <div
+                key={stat.label}
+                className="neumorphic rounded-2xl p-6 text-center"
+              >
                 <div className="text-4xl md:text-5xl font-medium text-[#4a9eff] mb-2">
                   {stat.value}
                 </div>
@@ -217,18 +226,13 @@ export default function Home() {
       <footer className="relative z-10 py-16 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/icbl_logo_white_on_blue_bg.jpg"
-                alt="ICB Lab"
-                width={32}
-                height={32}
-                className="rounded-lg opacity-50"
-              />
-              <span className="text-sm text-white/30">
-                Integrative Cardiac Biomechanics Laboratory
-              </span>
-            </div>
+            <Image
+              src="/icbl_logo.png"
+              alt="Integrative Cardiac Biomechanics Laboratory"
+              width={200}
+              height={34}
+              className="h-7 w-auto opacity-50"
+            />
 
             <div className="flex items-center gap-8 text-sm text-white/30">
               <span>Yale University</span>

@@ -62,20 +62,41 @@ export default function NewsPage() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-[#000000]/80 backdrop-blur-md border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-40 py-4">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="/icbl_logo_white_on_blue_bg.jpg" alt="ICB Lab" width={40} height={40} className="rounded-lg" />
-              <span className="text-sm font-medium text-white/60">ICB Lab</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/research" className="text-sm text-white/50 hover:text-white transition-colors">Research</Link>
-              <Link href="/publications" className="text-sm text-white/50 hover:text-white transition-colors">Publications</Link>
-              <Link href="/people" className="text-sm text-white/50 hover:text-white transition-colors">Team</Link>
-              <Link href="/news" className="text-sm text-white">News</Link>
+          <div className="grid grid-cols-3 items-center h-16">
+            {/* Logo - left */}
+            <div className="flex justify-start">
+              <Link href="/" className="flex items-center hover-lift">
+                <Image
+                  src="/icbl_logo.png"
+                  alt="Integrative Cardiac Biomechanics Laboratory"
+                  width={280}
+                  height={48}
+                  className="h-10 md:h-12 w-auto"
+                />
+              </Link>
             </div>
-            <a href="mailto:stuart.campbell@yale.edu" className="text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+
+            {/* Nav links - center */}
+            <div className="hidden md:flex justify-center">
+              <div className="nav-pill rounded-full px-2 py-2 flex items-center gap-1">
+                <Link href="/research" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Research</Link>
+                <Link href="/publications" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Publications</Link>
+                <Link href="/people" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Team</Link>
+                <Link href="/news" className="px-4 py-2 text-sm text-white hover:bg-white/5 rounded-full transition-all duration-300">News</Link>
+              </div>
+            </div>
+
+            {/* Contact - right */}
+            <div className="flex justify-end">
+              <a
+                href="mailto:stuart.campbell@yale.edu"
+                className="nav-pill px-5 py-2.5 rounded-full text-sm text-white/60 hover:text-white transition-all duration-300"
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -83,14 +104,14 @@ export default function NewsPage() {
       {/* Header */}
       <header className="pt-32 pb-16 relative z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Link href="/" className="text-sm text-white/40 hover:text-white transition-colors mb-8 inline-block">← Back</Link>
-          <h1 className="text-5xl md:text-6xl font-medium mb-6">News</h1>
-          <p className="text-xl text-white/40 max-w-2xl mb-12">
+          <Link href="/" className="text-sm text-white/40 hover:text-white transition-colors mb-8 inline-block animate-in">← Back</Link>
+          <h1 className="text-5xl md:text-6xl font-medium mb-6 animate-in">News</h1>
+          <p className="text-xl text-white/40 max-w-2xl mb-12 animate-in-delay">
             Updates from the lab.
           </p>
 
           {/* Filters */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 animate-in-delay-2">
             {categories.map((category) => (
               <button
                 key={category}
@@ -98,7 +119,7 @@ export default function NewsPage() {
                 className={`px-4 py-2 rounded-full text-sm transition-all ${
                   filterCategory === category
                     ? "bg-white text-black"
-                    : "glass text-white/60 hover:text-white"
+                    : "neumorphic text-white/60 hover:text-white"
                 }`}
               >
                 {categoryLabels[category]}
@@ -133,7 +154,7 @@ export default function NewsPage() {
                   {groupedNews[year].map((item) => (
                     <article
                       key={item.id}
-                      className="group glass rounded-xl p-6 hover:bg-white/5 transition-all"
+                      className="group neumorphic rounded-xl p-6 hover:bg-white/5 transition-all animate-slide-up"
                     >
                       <div className="flex flex-wrap items-center gap-3 mb-3">
                         <span className={`text-xs font-medium uppercase tracking-wider ${categoryColors[item.category]}`}>
