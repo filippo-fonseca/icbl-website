@@ -295,3 +295,13 @@ body {
 .page-enter {
   animation: pageEnter 0.5s ease-out;
 }
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.8s ease-in-out infinite;
+}

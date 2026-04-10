@@ -3,6 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { researchAreas } from "../data/research";
+import CardiomyopathyTree from "../components/research/CardiomyopathyTree";
+import CellHeterogeneityDiagram from "../components/research/CellHeterogeneityDiagram";
+import MechanobiologyDiagram from "../components/research/MechanobiologyDiagram";
+
+// Map research area IDs to their diagram components
+const diagramComponents: Record<string, React.ComponentType> = {
+  "inherited-cardiomyopathies": CardiomyopathyTree,
+  "cardiomyocyte-function": CellHeterogeneityDiagram,
+  "cardiac-mechanobiology": MechanobiologyDiagram,
+};
 
 export default function ResearchPage() {
   return (
@@ -36,6 +46,7 @@ export default function ResearchPage() {
             {/* Nav links - center */}
             <div className="hidden md:flex justify-center">
               <div className="nav-pill rounded-full px-2 py-2 flex items-center gap-1">
+                <Link href="/" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Home</Link>
                 <Link href="/research" className="px-4 py-2 text-sm text-white hover:bg-white/5 rounded-full transition-all duration-300">Research</Link>
                 <Link href="/publications" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Publications</Link>
                 <Link href="/people" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Team</Link>
@@ -96,9 +107,14 @@ export default function ResearchPage() {
                     </div>
                   </div>
 
-                  <div className="neumorphic rounded-2xl p-8 lg:sticky lg:top-32 animate-scale-in">
-                    <div className="aspect-square rounded-xl bg-gradient-to-br from-[#14365d]/20 to-transparent flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-[#14365d]/30 blur-xl" />
+                  <div className="neumorphic rounded-2xl p-6 lg:sticky lg:top-32 animate-scale-in">
+                    <div className="aspect-square rounded-xl bg-gradient-to-br from-[#14365d]/10 to-transparent flex items-center justify-center overflow-hidden">
+                      {(() => {
+                        const DiagramComponent = diagramComponents[area.id];
+                        return DiagramComponent ? <DiagramComponent /> : (
+                          <div className="w-24 h-24 rounded-full bg-[#14365d]/30 blur-xl" />
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>

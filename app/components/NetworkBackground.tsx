@@ -77,13 +77,15 @@ export default function NetworkBackground() {
       contraction: number,
       activation: number
     ) => {
-      const baseAlpha = 0.08 + activation * 0.25;
-      const contractedWidth = width * (0.85 + contraction * 0.15);
+      const baseAlpha = 0.1 + activation * 0.4;
+      const contractedWidth = width * (0.7 + (1 - contraction) * 0.3); // More dramatic contraction
       const xOffset = (width - contractedWidth) / 2;
+      const contractedHeight = height * (1 + contraction * 0.15); // Slight thickening during contraction
+      const yOffset = (height - contractedHeight) / 2;
 
       // Cell membrane
-      ctx.fillStyle = `rgba(100, 160, 220, ${baseAlpha * 0.3})`;
-      ctx.fillRect(x + xOffset, y, contractedWidth, height);
+      ctx.fillStyle = `rgba(100, 160, 220, ${baseAlpha * 0.4})`;
+      ctx.fillRect(x + xOffset, y + yOffset, contractedWidth, contractedHeight);
 
       // Sarcomere bands (Z-lines and A-bands)
       const bandCount = 6;
@@ -92,26 +94,26 @@ export default function NetworkBackground() {
       for (let i = 0; i < bandCount; i++) {
         const bandX = x + xOffset + i * bandWidth;
 
-        // Z-line (thin dark line)
+        // Z-line (thin dark line) - get closer together during contraction
         if (i > 0) {
-          ctx.fillStyle = `rgba(60, 120, 180, ${baseAlpha * 0.8})`;
-          ctx.fillRect(bandX - 1, y + 2, 2, height - 4);
+          ctx.fillStyle = `rgba(60, 120, 180, ${baseAlpha * 1.0})`;
+          ctx.fillRect(bandX - 1, y + yOffset + 2, 2, contractedHeight - 4);
         }
 
-        // A-band (darker middle region)
-        const aBandWidth = bandWidth * 0.5;
+        // A-band (darker middle region) - gets wider/denser during contraction
+        const aBandWidth = bandWidth * (0.4 + contraction * 0.4);
         const aBandX = bandX + (bandWidth - aBandWidth) / 2;
-        ctx.fillStyle = `rgba(80, 140, 200, ${baseAlpha * 0.5})`;
-        ctx.fillRect(aBandX, y + 3, aBandWidth * (0.7 + contraction * 0.3), height - 6);
+        ctx.fillStyle = `rgba(80, 140, 200, ${baseAlpha * 0.7})`;
+        ctx.fillRect(aBandX, y + yOffset + 3, aBandWidth, contractedHeight - 6);
       }
 
-      // Activation glow
+      // Activation glow - more intense
       if (activation > 0) {
-        ctx.shadowColor = "rgba(100, 180, 255, 0.5)";
-        ctx.shadowBlur = 10 * activation;
-        ctx.strokeStyle = `rgba(120, 180, 255, ${activation * 0.4})`;
-        ctx.lineWidth = 1;
-        ctx.strokeRect(x + xOffset, y, contractedWidth, height);
+        ctx.shadowColor = "rgba(100, 180, 255, 0.8)";
+        ctx.shadowBlur = 20 * activation;
+        ctx.strokeStyle = `rgba(120, 180, 255, ${activation * 0.6})`;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x + xOffset, y + yOffset, contractedWidth, contractedHeight);
         ctx.shadowBlur = 0;
       }
     };
@@ -122,13 +124,14 @@ export default function NetworkBackground() {
       radius: number,
       alpha: number
     ) => {
-      // Draw expanding wave front
+      // Draw expanding wave front - more visible
       const gradient = ctx.createRadialGradient(
-        origin.x, origin.y, radius * 0.8,
+        origin.x, origin.y, radius * 0.85,
         origin.x, origin.y, radius
       );
       gradient.addColorStop(0, `rgba(100, 180, 255, 0)`);
-      gradient.addColorStop(0.5, `rgba(100, 180, 255, ${alpha * 0.15})`);
+      gradient.addColorStop(0.4, `rgba(100, 180, 255, ${alpha * 0.25})`);
+      gradient.addColorStop(0.7, `rgba(120, 200, 255, ${alpha * 0.35})`);
       gradient.addColorStop(1, `rgba(100, 180, 255, 0)`);
 
       ctx.fillStyle = gradient;
@@ -138,8 +141,8 @@ export default function NetworkBackground() {
     };
 
     let lastWaveTime = 0;
-    const waveCooldown = 3000; // New wave every 3 seconds
-    const waveSpeed = 0.3; // pixels per ms
+    const waveCooldown = 2000; // New wave every 2 seconds (faster heartbeat)
+    const waveSpeed = 0.35; // pixels per ms (slightly faster conduction)
 
     const animate = (time: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -184,15 +187,15 @@ export default function NetworkBackground() {
         }
 
         // Calculate contraction (follows activation with slight delay)
-        const contractionDelay = 100;
-        const contractionDuration = 600;
+        const contractionDelay = 50;
+        const contractionDuration = 400;
         const contractionPhase = Math.max(0, timeSinceActivation - contractionDelay);
         const contraction = cell.activated || contractionPhase < contractionDuration
-          ? Math.sin((contractionPhase / contractionDuration) * Math.PI) * 0.3
+          ? Math.sin((contractionPhase / contractionDuration) * Math.PI) * 0.7 // Stronger contraction
           : 0;
 
         // Base rhythm (subtle)
-        const baseRhythm = Math.sin(time * 0.001 + cell.phase) * 0.05 + 0.05;
+        const baseRhythm = Math.sin(time * 0.001 + cell.phase) * 0.08 + 0.08;
 
         drawSarcomere(
           ctx,

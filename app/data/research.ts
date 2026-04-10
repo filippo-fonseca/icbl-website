@@ -12,9 +12,9 @@ export const researchAreas: ResearchArea[] = [
     id: "inherited-cardiomyopathies",
     title: "Inherited Cardiomyopathies",
     shortDescription: "Discovering detailed disease mechanisms, predicting genotype-phenotype relationships, and improving clinical diagnostics and therapeutics.",
-    fullDescription: `Inherited cardiomyopathies affect millions of people worldwide and are a leading cause of sudden cardiac death in young adults. Our lab uses computational modeling combined with experimental validation to understand how genetic mutations alter cardiac muscle function at multiple scales—from single molecules to the whole heart.
+    fullDescription: `Inherited cardiomyopathies are life-threatening disorders that generally emerge in the teenage years or later in life. These conditions involve structural and functional changes to heart tissue stemming from genetic mutations. Our lab works to connect specific gene mutations with altered muscle behavior and diseased tissue development.
 
-We develop sophisticated computer models that can predict how specific mutations affect sarcomere function, myocyte contraction, and ultimately cardiac pump performance. By integrating these predictions with data from patient-derived stem cells and clinical observations, we aim to improve risk stratification and develop targeted therapies.
+Our methodology combines computational modeling, tissue engineering, and clinical genetics approaches to advance diagnostic capabilities and therapeutic interventions. We engineer human heart tissues using CRISPR to study genetic cardiomyopathies, seeding human heart cells derived from stem cells onto decellularized tissue scaffolds to create functional models that mimic human muscle behavior.
 
 Key questions we address:
 • How do mutations in sarcomere proteins alter the fundamental mechanics of muscle contraction?
@@ -25,26 +25,26 @@ Key questions we address:
     id: "cardiomyocyte-function",
     title: "Cardiomyocyte Function & Heterogeneity",
     shortDescription: "Characterizing cell-to-cell variation in the myocardium and studying the cellular signaling pathways that regulate muscle contraction.",
-    fullDescription: `The heart contains billions of cardiomyocytes that must work together in precise coordination. Yet these cells are not identical—they vary in their size, shape, gene expression, and contractile properties. Our lab investigates how this cellular heterogeneity affects cardiac function in health and disease.
+    fullDescription: `Isolated cardiac cells display significant variation in size, shape, and functional properties. Our recent findings demonstrate that these functional differences result from variations in protein phosphorylation levels. We investigate how this cellular heterogeneity affects overall heart function.
 
-Using advanced imaging techniques, single-cell analysis, and computational modeling, we characterize the diversity of cardiomyocyte populations and determine how heterogeneity emerges during development and changes in disease states. This work has implications for understanding arrhythmias, heart failure, and the response to therapeutic interventions.
+We also explore fundamental questions in cardiac muscle physiology using engineering-based approaches. Our investigations focus on the basis for the Frank-Starling relationship, the roles of various proteins in the regulation of muscle contraction, and how myofilament protein mutations influence cardiac performance. This work employs computational modeling and biomechanical measurements to address long-standing physiological questions.
 
 Key questions we address:
 • What is the extent of functional heterogeneity in normal and diseased hearts?
-• How does heterogeneity affect the heart's ability to generate coordinated contractions?
-• Can targeting specific cardiomyocyte subpopulations improve therapeutic outcomes?`,
+• How do variations in protein phosphorylation drive cell-to-cell differences?
+• How does heterogeneity affect the heart's ability to generate coordinated contractions?`,
   },
   {
     id: "cardiac-mechanobiology",
     title: "Cardiac Tissue Mechanobiology",
     shortDescription: "Dissecting the role of biomechanical loads and extracellular matrix on cardiac remodeling and mechanotransduction.",
-    fullDescription: `The heart is a mechanical organ, and the cells within it are constantly sensing and responding to mechanical forces. The extracellular matrix (ECM) that surrounds cardiomyocytes provides structural support and transmits mechanical signals that regulate cell behavior. Our lab studies how mechanical cues influence cardiac development, homeostasis, and disease progression.
+    fullDescription: `We investigate cellular and tissue responses to mechanical signals, including extracellular matrix properties and applied mechanical loads. This understanding proves essential for comprehending cardiac development, tissue maintenance, and disease mechanisms.
 
-We use engineered tissue platforms, advanced microscopy, and computational models to understand the bidirectional interactions between cardiomyocytes and their mechanical environment. This work is revealing how changes in ECM composition and stiffness contribute to heart failure and suggesting new therapeutic approaches targeting the cardiac microenvironment.
+Our lab uses engineered tissue platforms and custom mechanical bioreactors to study these relationships. We start with thin slices of decellularized pig heart tissue—essentially, the natural scaffold of an organ stripped of its cells—and use that as a foundation. Human heart cells, derived from stem cells, are then seeded onto the matrix. With mechanical stimulation and hormone cues, the cells organize and mature, beating rhythmically and mimicking the behavior of human muscle.
 
 Key questions we address:
 • How do cardiomyocytes sense and respond to mechanical forces?
-• What role does ECM remodeling play in heart failure progression?
+• What role does extracellular matrix remodeling play in heart failure progression?
 • Can we develop biomaterial-based therapies to restore normal cardiac mechanics?`,
   },
 ];

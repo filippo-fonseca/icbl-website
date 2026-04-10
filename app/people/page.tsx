@@ -83,6 +83,7 @@ export default function PeoplePage() {
             {/* Nav links - center */}
             <div className="hidden md:flex justify-center">
               <div className="nav-pill rounded-full px-2 py-2 flex items-center gap-1">
+                <Link href="/" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Home</Link>
                 <Link href="/research" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Research</Link>
                 <Link href="/publications" className="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-full transition-all duration-300">Publications</Link>
                 <Link href="/people" className="px-4 py-2 text-sm text-white hover:bg-white/5 rounded-full transition-all duration-300">Team</Link>

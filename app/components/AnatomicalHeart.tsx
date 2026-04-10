@@ -44,7 +44,7 @@ export default function AnatomicalHeart() {
         loop
         muted
         playsInline
-        className="w-[650px] h-[650px] md:w-[850px] md:h-[850px] lg:w-[950px] lg:h-[950px] object-contain"
+        className="w-[500px] h-[500px] sm:w-[650px] sm:h-[650px] md:w-[1000px] md:h-[1000px] lg:w-[1400px] lg:h-[1400px] object-contain"
       >
         <source src="/heart_transparent.webm" type="video/webm" />
       </video>
