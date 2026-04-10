@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Integrative Cardiac Biomechanics Laboratory | Yale",
   description:
     "Led by Dr. Stuart Campbell at Yale Biomedical Engineering, we conduct translational research in cardiac physiology, biomechanics, and stem cell biology to solve unmet clinical needs.",
-  metadataBase: new URL("https://icbl.yale.edu"),
+  metadataBase: new URL("https://icbl-website.vercel.app"),
   openGraph: {
     title: "Integrative Cardiac Biomechanics Laboratory | Yale",
     description:
